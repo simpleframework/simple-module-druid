@@ -1,0 +1,37 @@
+.DataSourceMonitorPage>div,
+.ConnectionMonitorPage>div,
+.SqlMonitorPage>div {
+	margin: 10px 0;
+	-webkit-box-shadow: 5px 5px 5px #aaa;
+	-moz-box-shadow: 5px 5px 5px #aaa;
+	box-shadow: 5px 5px 5px #aaa;
+}
+
+.DataSourceMonitorPage>div,
+.ConnectionMonitorPage>div {
+	width: 75%;
+}
+
+.SqlMonitorPage>div {
+	margin: 6px 0 4px 0;
+	width: 90%;
+}
+
+.DataSourceMonitorPage .k {
+	color: #400;
+}
+
+.DataSourceMonitorPage .h {
+	padding-right: 10px;
+	text-align: right;
+}
+
+.DataSourceMonitorPage .desc {
+	color: #777;
+	padding-top: 6px;
+}
+
+.ConnectionMonitorPage .form_tbl .l,
+.SqlMonitorPage .form_tbl .l {
+	width: 150px;
+}
