@@ -19,6 +19,7 @@ import net.simpleframework.common.I18n;
 import net.simpleframework.common.NumberUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.PageMapping;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.SpanElement;
@@ -116,7 +117,7 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 			double l = ((Long) BeanUtils.getProperty(dataObject, "AliveTimespan")).doubleValue() / 1000.0;
 			String ts = NumberUtils.formatDouble(l) + "s";
 			if (l > 60) {
-				ts += NBSP + "(" + NumberUtils.formatDouble(l / 60.0) + "m)";
+				ts += HtmlConst.NBSP + "(" + NumberUtils.formatDouble(l / 60.0) + "m)";
 			}
 			kv.put("AliveTimespan", ts);
 

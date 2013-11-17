@@ -17,6 +17,7 @@ import net.simpleframework.common.Convert;
 import net.simpleframework.common.NumberUtils;
 import net.simpleframework.common.StringUtils;
 import net.simpleframework.common.coll.KVMap;
+import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.PageMapping;
 import net.simpleframework.mvc.PageParameter;
 import net.simpleframework.mvc.common.element.ETextAlign;
@@ -121,7 +122,8 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 				final double l = ((Long) v).doubleValue() / 1000.0;
 				sb.append(NumberUtils.formatDouble(l)).append("s");
 				if (l > 60.0) {
-					sb.append(NBSP).append("(").append(NumberUtils.formatDouble(l / 60.0)).append("m)");
+					sb.append(HtmlConst.NBSP).append("(").append(NumberUtils.formatDouble(l / 60.0))
+							.append("m)");
 				}
 				v = sb.toString();
 			} else if ("ConnectionHistogram".equals(k)) {
