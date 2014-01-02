@@ -46,10 +46,10 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 	protected void addComponents(final PageParameter pp) {
 		super.addComponents(pp);
 
-		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, "SqlMonitorTable",
+		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, "SqlMonitorPage_tbl",
 				TablePagerBean.class).setShowVerticalLine(true).setDetailField("sqlDetail")
 				.setHeadHeight(54).setShowCheckbox(false).setShowLineNo(true)
-				.setPagerBarLayout(EPagerBarLayout.bottom).setContainerId("tbl_" + hashId)
+				.setPagerBarLayout(EPagerBarLayout.bottom).setContainerId("idSqlMonitorPage_tbl")
 				.setHandleClass(SqlMonitorTable.class);
 
 		tablePager
@@ -87,7 +87,7 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 			final String currentVariable) throws IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div align='center' class='SqlMonitorPage'>");
-		sb.append("  <div id='tbl_").append(hashId).append("'></div>");
+		sb.append("  <div id='idSqlMonitorPage_tbl'></div>");
 		sb.append("</div>");
 		return sb.toString();
 	}

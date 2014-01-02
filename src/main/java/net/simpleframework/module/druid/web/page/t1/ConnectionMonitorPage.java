@@ -48,10 +48,11 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 		super.addComponents(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
-				"DataSourceMonitorTable", TablePagerBean.class).setShowVerticalLine(true)
+				"ConnectionMonitorPage_tbl", TablePagerBean.class).setShowVerticalLine(true)
 				.setScrollHead(false).setDetailField("connDetail").setShowCheckbox(false)
 				.setShowLineNo(true).setPageItems(999).setPagerBarLayout(EPagerBarLayout.none)
-				.setContainerId("tbl_" + hashId).setHandleClass(ConnectionMonitorTable.class);
+				.setContainerId("idConnectionMonitorPage_tbl")
+				.setHandleClass(ConnectionMonitorTable.class);
 
 		tablePager
 				.addColumn(new TablePagerColumn("ID").setWidth(80))
@@ -77,7 +78,7 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 			final String currentVariable) throws IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div align='center' class='ConnectionMonitorPage'>");
-		sb.append("  <div id='tbl_").append(hashId).append("'></div>");
+		sb.append("  <div id='idConnectionMonitorPage_tbl'></div>");
 		sb.append("</div>");
 		return sb.toString();
 	}

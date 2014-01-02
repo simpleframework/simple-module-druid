@@ -47,10 +47,11 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 		super.addComponents(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
-				"DataSourceMonitorTable", TablePagerBean.class).setGroupColumn("g")
+				"DataSourceMonitorPage_tbl", TablePagerBean.class).setGroupColumn("g")
 				.setShowVerticalLine(true).setShowCheckbox(false).setScrollHead(false)
 				.setShowLineNo(true).setPageItems(100).setPagerBarLayout(EPagerBarLayout.none)
-				.setContainerId("tbl_" + hashId).setHandleClass(DataSourceMonitorTable.class);
+				.setContainerId("idDataSourceMonitorPage_tbl")
+				.setHandleClass(DataSourceMonitorTable.class);
 
 		tablePager
 				.addColumn(
@@ -67,7 +68,7 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 			final String currentVariable) throws IOException {
 		final StringBuilder sb = new StringBuilder();
 		sb.append("<div align='center' class='DataSourceMonitorPage'>");
-		sb.append("  <div id='tbl_").append(hashId).append("'></div>");
+		sb.append("  <div id='idDataSourceMonitorPage_tbl'></div>");
 		sb.append("</div>");
 		return sb.toString();
 	}
