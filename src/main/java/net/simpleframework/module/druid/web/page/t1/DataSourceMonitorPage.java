@@ -43,8 +43,8 @@ import com.alibaba.druid.stat.JdbcStatManager;
 public class DataSourceMonitorPage extends AbstractMonitorPage {
 
 	@Override
-	protected void addComponents(final PageParameter pp) {
-		super.addComponents(pp);
+	protected void onForward(final PageParameter pp) {
+		super.onForward(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
 				"DataSourceMonitorPage_tbl", TablePagerBean.class).setGroupColumn("g")

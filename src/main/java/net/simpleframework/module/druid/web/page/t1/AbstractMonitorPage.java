@@ -35,8 +35,8 @@ public abstract class AbstractMonitorPage extends T1ResizedTemplatePage {
 	}
 
 	@Override
-	protected void addImportCSS(final PageParameter pp) {
-		super.addImportCSS(pp);
+	protected void onForward(final PageParameter pp) {
+		super.onForward(pp);
 
 		pp.addImportCSS(AbstractMonitorPage.class, "/druid.css");
 	}
