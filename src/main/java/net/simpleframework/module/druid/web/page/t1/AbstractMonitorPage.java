@@ -47,7 +47,7 @@ public abstract class AbstractMonitorPage extends T1ResizedTemplatePage {
 	}
 
 	@Override
-	protected TabButtons getTabButtons(final PageParameter pp) {
+	public TabButtons getTabButtons(final PageParameter pp) {
 		return TabButtons.of(new TabButton($m("AbstractMonitorPage.0"),
 				url(DataSourceMonitorPage.class)), new TabButton($m("AbstractMonitorPage.1"),
 				url(ConnectionMonitorPage.class)), new TabButton($m("AbstractMonitorPage.2"),
