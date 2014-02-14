@@ -12,7 +12,7 @@ import javax.management.JMException;
 import javax.management.openmbean.CompositeData;
 
 import net.simpleframework.ado.query.IDataQuery;
-import net.simpleframework.ado.query.ListDataObjectQuery;
+import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.Convert;
 import net.simpleframework.common.NumberUtils;
 import net.simpleframework.common.StringUtils;
@@ -99,7 +99,7 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 					data.add(row);
 				}
 			}
-			return new ListDataObjectQuery<Map<?, ?>>(data);
+			return new ListDataQuery<Map<?, ?>>(data);
 		}
 
 		@Override

@@ -13,7 +13,7 @@ import javax.management.openmbean.CompositeData;
 import javax.management.openmbean.TabularData;
 
 import net.simpleframework.ado.query.IDataQuery;
-import net.simpleframework.ado.query.ListDataObjectQuery;
+import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.BeanUtils;
 import net.simpleframework.common.NumberUtils;
 import net.simpleframework.common.StringUtils;
@@ -122,7 +122,7 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 				}
 				data.add(row);
 			}
-			return new ListDataObjectQuery<Map<?, ?>>(data);
+			return new ListDataQuery<Map<?, ?>>(data);
 		}
 
 		@Override
