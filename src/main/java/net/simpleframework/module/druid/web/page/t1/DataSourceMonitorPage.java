@@ -51,7 +51,7 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 				.setShowVerticalLine(true).setShowCheckbox(false).setScrollHead(false)
 				.setShowLineNo(true).setPageItems(100).setPagerBarLayout(EPagerBarLayout.none)
 				.setContainerId("idDataSourceMonitorPage_tbl")
-				.setHandleClass(DataSourceMonitorTable.class);
+				.setHandlerClass(DataSourceMonitorTable.class);
 
 		tablePager
 				.addColumn(

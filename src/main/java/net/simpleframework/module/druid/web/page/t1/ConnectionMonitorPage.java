@@ -52,7 +52,7 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 				.setScrollHead(false).setDetailField("connDetail").setShowCheckbox(false)
 				.setShowLineNo(true).setPageItems(999).setPagerBarLayout(EPagerBarLayout.none)
 				.setContainerId("idConnectionMonitorPage_tbl")
-				.setHandleClass(ConnectionMonitorTable.class);
+				.setHandlerClass(ConnectionMonitorTable.class);
 
 		tablePager
 				.addColumn(new TablePagerColumn("ID").setWidth(80))
