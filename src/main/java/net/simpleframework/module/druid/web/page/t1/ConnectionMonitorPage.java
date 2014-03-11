@@ -48,9 +48,9 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 		super.onForward(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
-				"ConnectionMonitorPage_tbl", TablePagerBean.class).setShowVerticalLine(true)
-				.setScrollHead(false).setDetailField("connDetail").setShowCheckbox(false)
-				.setShowLineNo(true).setPageItems(999).setPagerBarLayout(EPagerBarLayout.none)
+				"ConnectionMonitorPage_tbl", TablePagerBean.class).setScrollHead(false)
+				.setDetailField("connDetail").setShowCheckbox(false).setShowLineNo(true)
+				.setPageItems(999).setPagerBarLayout(EPagerBarLayout.none)
 				.setContainerId("idConnectionMonitorPage_tbl")
 				.setHandlerClass(ConnectionMonitorTable.class);
 

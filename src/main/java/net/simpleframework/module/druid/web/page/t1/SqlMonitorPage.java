@@ -47,10 +47,9 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 		super.onForward(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, "SqlMonitorPage_tbl",
-				TablePagerBean.class).setShowVerticalLine(true).setDetailField("sqlDetail")
-				.setHeadHeight(54).setShowCheckbox(false).setShowLineNo(true)
-				.setPagerBarLayout(EPagerBarLayout.bottom).setContainerId("idSqlMonitorPage_tbl")
-				.setHandlerClass(SqlMonitorTable.class);
+				TablePagerBean.class).setDetailField("sqlDetail").setHeadHeight(54)
+				.setShowCheckbox(false).setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.bottom)
+				.setContainerId("idSqlMonitorPage_tbl").setHandlerClass(SqlMonitorTable.class);
 
 		tablePager
 				.addColumn(new TablePagerColumn("ExecuteCount", "执行次数", 70))
