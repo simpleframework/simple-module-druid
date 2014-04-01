@@ -4,6 +4,7 @@ import static net.simpleframework.common.I18n.$m;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -60,7 +61,7 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 				.addColumn(new TablePagerColumn("MaxTimespan", "最慢消\n耗时间", 70).setFormat("#ms"))
 				.addColumn(
 						new TablePagerColumn("MaxTimespanOccurTime", "最慢发生时间", 110)
-								.setFormat(DATE_FORMAT))
+								.setFormat(DATE_FORMAT).setPropertyClass(Date.class))
 				.addColumn(new TablePagerColumn("ConcurrentMax", "最大并\n发数量 ", 70))
 				.addColumn(new TablePagerColumn("ErrorCount", "错误次数", 70))
 				.addColumn(new TablePagerColumn("BatchSizeMax", "最大\nBatch", 70))
@@ -72,9 +73,12 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 						new TablePagerColumn("ExecuteAndResultSetHoldTime", "ResultSet\n执行及持有时间", 110)
 								.setFormat("#ms"))
 				.addColumn(new TablePagerColumn("InTransactionCount", "事务中\n运行数", 70))
-				.addColumn(new TablePagerColumn("LastTime", "最后执行时间", 110).setFormat(DATE_FORMAT))
-				.addColumn(new TablePagerColumn("LastErrorTime", "最后错误时间", 110).setFormat(DATE_FORMAT))
-				.addColumn(TablePagerColumn.BLANK());
+				.addColumn(
+						new TablePagerColumn("LastTime", "最后执行时间", 110).setFormat(DATE_FORMAT)
+								.setPropertyClass(Date.class))
+				.addColumn(
+						new TablePagerColumn("LastErrorTime", "最后错误时间", 110).setFormat(DATE_FORMAT)
+								.setPropertyClass(Date.class)).addColumn(TablePagerColumn.BLANK());
 
 		for (final TablePagerColumn c : tablePager.getColumns()) {
 			c.setTooltip(c.getColumnName());

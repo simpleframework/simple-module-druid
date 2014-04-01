@@ -4,6 +4,7 @@ import static net.simpleframework.common.I18n.$m;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -58,19 +59,21 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 				.addColumn(new TablePagerColumn("ID").setWidth(80))
 				.addColumn(
 						new TablePagerColumn("ConnectTime", $m("ConnectionMonitorPage.ConnectTime"))
-								.setFormat(DATE_FORMAT))
+								.setFormat(DATE_FORMAT).setPropertyClass(Date.class))
 				.addColumn(
 						new TablePagerColumn("ConnectTimespan", I18n
 								.$m("ConnectionMonitorPage.ConnectTimespan")))
 				.addColumn(
 						new TablePagerColumn("EstablishTime", I18n
-								.$m("ConnectionMonitorPage.EstablishTime")).setFormat(DATE_FORMAT))
+								.$m("ConnectionMonitorPage.EstablishTime")).setFormat(DATE_FORMAT)
+								.setPropertyClass(Date.class))
 				.addColumn(
 						new TablePagerColumn("AliveTimespan", I18n
 								.$m("ConnectionMonitorPage.AliveTimespan")))
 				.addColumn(
 						new TablePagerColumn("LastErrorTime", I18n
-								.$m("ConnectionMonitorPage.LastErrorTime")).setFormat(DATE_FORMAT));
+								.$m("ConnectionMonitorPage.LastErrorTime")).setFormat(DATE_FORMAT)
+								.setPropertyClass(Date.class));
 	}
 
 	@Override
