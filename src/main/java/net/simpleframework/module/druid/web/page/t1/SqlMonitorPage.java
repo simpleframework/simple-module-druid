@@ -134,7 +134,7 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 			final KVMap kv = new KVMap().addAll((Map<String, Object>) dataObject);
 
 			final double l = ((Long) BeanUtils.getProperty(dataObject, "TotalTime")).doubleValue() / 1000.0;
-			kv.put("TotalTime", NumberUtils.formatDouble(l) + "s");
+			kv.put("TotalTime", NumberUtils.format(l) + "s");
 
 			final StringBuilder sb = new StringBuilder();
 			final String sql = (String) BeanUtils.getProperty(dataObject, "SQL");

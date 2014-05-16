@@ -121,9 +121,9 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 				v = Convert.toDateString((Date) v, "yyyy-MM-dd HH:mm:ss");
 			} else if (k.contains("Millis") && v instanceof Long) {
 				final double l = ((Long) v).doubleValue() / 1000.0;
-				sb.append(NumberUtils.formatDouble(l)).append("s");
+				sb.append(NumberUtils.format(l)).append("s");
 				if (l > 60.0) {
-					sb.append(HtmlConst.NBSP).append("(").append(NumberUtils.formatDouble(l / 60.0))
+					sb.append(HtmlConst.NBSP).append("(").append(NumberUtils.format(l / 60.0))
 							.append("m)");
 				}
 				v = sb.toString();

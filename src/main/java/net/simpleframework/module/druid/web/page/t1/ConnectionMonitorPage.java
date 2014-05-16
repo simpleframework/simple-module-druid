@@ -119,14 +119,14 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 			final KVMap kv = new KVMap().addAll((Map<String, Object>) dataObject);
 
 			double l = ((Long) BeanUtils.getProperty(dataObject, "AliveTimespan")).doubleValue() / 1000.0;
-			String ts = NumberUtils.formatDouble(l) + "s";
+			String ts = NumberUtils.format(l) + "s";
 			if (l > 60) {
-				ts += HtmlConst.NBSP + "(" + NumberUtils.formatDouble(l / 60.0) + "m)";
+				ts += HtmlConst.NBSP + "(" + NumberUtils.format(l / 60.0) + "m)";
 			}
 			kv.put("AliveTimespan", ts);
 
 			l = ((Long) BeanUtils.getProperty(dataObject, "ConnectTimespan")).doubleValue() / 1000.0;
-			kv.put("ConnectTimespan", NumberUtils.formatDouble(l) + "s");
+			kv.put("ConnectTimespan", NumberUtils.format(l) + "s");
 
 			final StringBuilder sb = new StringBuilder();
 			final String lastSql = (String) BeanUtils.getProperty(dataObject, "LastSql");
