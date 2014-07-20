@@ -4,7 +4,6 @@ import static net.simpleframework.common.I18n.$m;
 import net.simpleframework.ctx.AbstractModuleContext;
 import net.simpleframework.ctx.Module;
 import net.simpleframework.ctx.ModuleFunctions;
-import net.simpleframework.ctx.permission.IPermissionConst;
 import net.simpleframework.module.druid.web.page.t1.DataSourceMonitorPage;
 import net.simpleframework.mvc.ctx.WebModuleFunction;
 
@@ -25,11 +24,6 @@ public class DruidWebContext extends AbstractModuleContext implements IDruidCont
 	@Override
 	protected ModuleFunctions getFunctions() {
 		return ModuleFunctions.of(FUNC_DATASOURCE_MONITOR);
-	}
-
-	@Override
-	public String getManagerRole() {
-		return IPermissionConst.ROLE_MANAGER;
 	}
 
 	public static final WebModuleFunction FUNC_DATASOURCE_MONITOR = (WebModuleFunction) new WebModuleFunction(
