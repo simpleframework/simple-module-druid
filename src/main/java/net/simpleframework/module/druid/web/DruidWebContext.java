@@ -26,7 +26,7 @@ public class DruidWebContext extends AbstractModuleContext implements IDruidCont
 		return ModuleFunctions.of(FUNC_DATASOURCE_MONITOR);
 	}
 
-	public static final WebModuleFunction FUNC_DATASOURCE_MONITOR = (WebModuleFunction) new WebModuleFunction(
-			DataSourceMonitorPage.class).setName(MODULE_NAME + "-DataSourceMonitorPage").setText(
-			$m("DruidWebContext.0"));
+	public final WebModuleFunction FUNC_DATASOURCE_MONITOR = (WebModuleFunction) new WebModuleFunction(
+			this, DataSourceMonitorPage.class).setName(MODULE_NAME + "-DataSourceMonitorPage")
+			.setText($m("DruidWebContext.0"));
 }
