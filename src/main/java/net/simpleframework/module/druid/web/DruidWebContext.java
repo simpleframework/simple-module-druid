@@ -17,16 +17,13 @@ public class DruidWebContext extends AbstractModuleContext implements IDruidCont
 
 	@Override
 	protected Module createModule() {
-		return new Module().setName(MODULE_NAME).setText("Druid").setOrder(36)
-				.setDefaultFunction(FUNC_DATASOURCE_MONITOR);
+		return new Module().setName(MODULE_NAME).setText("Druid").setOrder(36);
 	}
 
 	@Override
 	protected ModuleFunctions getFunctions() {
-		return ModuleFunctions.of(FUNC_DATASOURCE_MONITOR);
+		return ModuleFunctions.of((WebModuleFunction) new WebModuleFunction(this,
+				DataSourceMonitorPage.class).setName(MODULE_NAME + "-DataSourceMonitorPage").setText(
+				$m("DruidWebContext.0")));
 	}
-
-	public final WebModuleFunction FUNC_DATASOURCE_MONITOR = (WebModuleFunction) new WebModuleFunction(
-			this, DataSourceMonitorPage.class).setName(MODULE_NAME + "-DataSourceMonitorPage")
-			.setText($m("DruidWebContext.0"));
 }
