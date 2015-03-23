@@ -20,7 +20,6 @@ import net.simpleframework.common.coll.KVMap;
 import net.simpleframework.common.web.html.HtmlConst;
 import net.simpleframework.mvc.PageMapping;
 import net.simpleframework.mvc.PageParameter;
-import net.simpleframework.mvc.common.element.ETextAlign;
 import net.simpleframework.mvc.common.element.SpanElement;
 import net.simpleframework.mvc.component.ComponentHandlerException;
 import net.simpleframework.mvc.component.ComponentParameter;
@@ -56,11 +55,10 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 		tablePager
 				.addColumn(
 						new TablePagerColumn("key").setColumnText($m("DataSourceMonitorPage.0"))
-								.setNowrap(false).setWidth(300).setTextAlign(ETextAlign.left))
+								.setNowrap(false).setWidth(300))
 				.addColumn(
 						new TablePagerColumn("val").setColumnText($m("DataSourceMonitorPage.1"))
-								.setNowrap(false).setTextAlign(ETextAlign.left))
-				.addColumn(new TablePagerColumn("g").setVisible(false));
+								.setNowrap(false)).addColumn(new TablePagerColumn("g").setVisible(false));
 	}
 
 	@Override
