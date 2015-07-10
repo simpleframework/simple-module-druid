@@ -44,7 +44,7 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 	private static final String DATE_FORMAT = "MM-dd HH:mm:ss";
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, "SqlMonitorPage_tbl",

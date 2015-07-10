@@ -42,7 +42,7 @@ import com.alibaba.druid.stat.JdbcStatManager;
 public class DataSourceMonitorPage extends AbstractMonitorPage {
 
 	@Override
-	protected void onForward(final PageParameter pp) {
+	protected void onForward(final PageParameter pp) throws Exception {
 		super.onForward(pp);
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
