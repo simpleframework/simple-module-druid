@@ -80,9 +80,9 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 						new TablePagerColumn("LastErrorTime", "最后错误时间", 110).setFormat(DATE_FORMAT)
 								.setPropertyClass(Date.class)).addColumn(TablePagerColumn.BLANK());
 
-		for (final TablePagerColumn c : tablePager.getColumns()) {
-			c.setTooltip(c.getColumnName());
-		}
+		// for (final TablePagerColumn c : tablePager.getColumns()) {
+		// c.setTooltip(c.getColumnName());
+		// }
 	}
 
 	@Override
