@@ -15,13 +15,11 @@
     <dependency>
       <groupId>net.simpleframework</groupId>
       <artifactId>simple-mvc-template</artifactId>
-      <version>${simple.mvc.template}</version>
     </dependency>
 
     <dependency>
       <groupId>net.simpleframework</groupId>
       <artifactId>simple-ado</artifactId>
-      <version>${simple.ado}</version>
     </dependency>
 
     <!-- web容器包 -->
