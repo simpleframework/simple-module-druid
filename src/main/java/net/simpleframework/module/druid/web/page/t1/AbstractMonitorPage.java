@@ -43,7 +43,7 @@ public abstract class AbstractMonitorPage extends T1ResizedTemplatePage {
 
 	@Override
 	public String getPageRole(final PageParameter pp) {
-		return context.getModule().getManagerRole();
+		return getPageManagerRole(pp);
 	}
 
 	@Override

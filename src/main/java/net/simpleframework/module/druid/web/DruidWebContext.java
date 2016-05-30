@@ -17,7 +17,7 @@ public class DruidWebContext extends AbstractModuleContext implements IDruidCont
 
 	@Override
 	protected Module createModule() {
-		return new Module().setName(MODULE_NAME).setText("Druid").setOrder(36);
+		return super.createModule().setName(MODULE_NAME).setText("Druid").setOrder(36);
 	}
 
 	@Override
