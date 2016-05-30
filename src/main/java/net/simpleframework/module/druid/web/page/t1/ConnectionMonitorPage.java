@@ -13,6 +13,8 @@ import javax.management.JMException;
 import javax.management.openmbean.CompositeData;
 import javax.management.openmbean.TabularData;
 
+import com.alibaba.druid.stat.JdbcStatManager;
+
 import net.simpleframework.ado.query.IDataQuery;
 import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.BeanUtils;
@@ -32,8 +34,6 @@ import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
 import net.simpleframework.mvc.template.struct.NavigationButtons;
 
-import com.alibaba.druid.stat.JdbcStatManager;
-
 /**
  * Licensed under the Apache License, Version 2.0
  * 
@@ -50,29 +50,23 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
 				"ConnectionMonitorPage_tbl", TablePagerBean.class).setScrollHead(false)
-				.setDetailField("connDetail").setShowCheckbox(false).setShowLineNo(true)
-				.setPageItems(999).setPagerBarLayout(EPagerBarLayout.none)
-				.setContainerId("idConnectionMonitorPage_tbl")
-				.setHandlerClass(ConnectionMonitorTable.class);
+						.setDetailField("connDetail").setShowCheckbox(false).setShowLineNo(true)
+						.setPageItems(999).setPagerBarLayout(EPagerBarLayout.none)
+						.setContainerId("idConnectionMonitorPage_tbl")
+						.setHandlerClass(ConnectionMonitorTable.class);
 
-		tablePager
-				.addColumn(new TablePagerColumn("ID").setWidth(80))
-				.addColumn(
-						new TablePagerColumn("ConnectTime", $m("ConnectionMonitorPage.ConnectTime"))
-								.setFormat(DATE_FORMAT).setPropertyClass(Date.class))
-				.addColumn(
-						new TablePagerColumn("ConnectTimespan", I18n
-								.$m("ConnectionMonitorPage.ConnectTimespan")))
-				.addColumn(
-						new TablePagerColumn("EstablishTime", I18n
-								.$m("ConnectionMonitorPage.EstablishTime")).setFormat(DATE_FORMAT)
+		tablePager.addColumn(new TablePagerColumn("ID").setWidth(80))
+				.addColumn(new TablePagerColumn("ConnectTime", $m("ConnectionMonitorPage.ConnectTime"))
+						.setFormat(DATE_FORMAT).setPropertyClass(Date.class))
+				.addColumn(new TablePagerColumn("ConnectTimespan",
+						I18n.$m("ConnectionMonitorPage.ConnectTimespan")))
+				.addColumn(new TablePagerColumn("EstablishTime",
+						I18n.$m("ConnectionMonitorPage.EstablishTime")).setFormat(DATE_FORMAT)
 								.setPropertyClass(Date.class))
-				.addColumn(
-						new TablePagerColumn("AliveTimespan", I18n
-								.$m("ConnectionMonitorPage.AliveTimespan")))
-				.addColumn(
-						new TablePagerColumn("LastErrorTime", I18n
-								.$m("ConnectionMonitorPage.LastErrorTime")).setFormat(DATE_FORMAT)
+				.addColumn(new TablePagerColumn("AliveTimespan",
+						I18n.$m("ConnectionMonitorPage.AliveTimespan")))
+				.addColumn(new TablePagerColumn("LastErrorTime",
+						I18n.$m("ConnectionMonitorPage.LastErrorTime")).setFormat(DATE_FORMAT)
 								.setPropertyClass(Date.class));
 	}
 
@@ -114,11 +108,13 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 		}
 
 		@Override
-		protected Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
+		protected Map<String, Object> getRowData(final ComponentParameter cp,
+				final Object dataObject) {
 			@SuppressWarnings("unchecked")
 			final KVMap kv = new KVMap().addAll((Map<String, Object>) dataObject);
 
-			double l = ((Long) BeanUtils.getProperty(dataObject, "AliveTimespan")).doubleValue() / 1000.0;
+			double l = ((Long) BeanUtils.getProperty(dataObject, "AliveTimespan")).doubleValue()
+					/ 1000.0;
 			String ts = NumberUtils.format(l) + "s";
 			if (l > 60) {
 				ts += HtmlConst.NBSP + "(" + NumberUtils.format(l / 60.0) + "m)";

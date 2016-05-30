@@ -28,8 +28,8 @@ public abstract class AbstractMonitorPage extends T1ResizedTemplatePage {
 	static {
 		try {
 			properties = new Properties();
-			properties.load(ClassUtils.getResourceAsStream(DataSourceMonitorPage.class,
-					"stat.properties"));
+			properties.load(
+					ClassUtils.getResourceAsStream(DataSourceMonitorPage.class, "stat.properties"));
 		} catch (final IOException e) {
 		}
 	}
@@ -43,14 +43,14 @@ public abstract class AbstractMonitorPage extends T1ResizedTemplatePage {
 
 	@Override
 	public String getPageRole(final PageParameter pp) {
-		return context.getModule().getManagerRole();
+		return getPageManagerRole(pp);
 	}
 
 	@Override
 	public TabButtons getTabButtons(final PageParameter pp) {
-		return TabButtons.of(new TabButton($m("AbstractMonitorPage.0"),
-				url(DataSourceMonitorPage.class)), new TabButton($m("AbstractMonitorPage.1"),
-				url(ConnectionMonitorPage.class)), new TabButton($m("AbstractMonitorPage.2"),
-				url(SqlMonitorPage.class)));
+		return TabButtons.of(
+				new TabButton($m("AbstractMonitorPage.0"), url(DataSourceMonitorPage.class)),
+				new TabButton($m("AbstractMonitorPage.1"), url(ConnectionMonitorPage.class)),
+				new TabButton($m("AbstractMonitorPage.2"), url(SqlMonitorPage.class)));
 	}
 }

@@ -12,6 +12,8 @@ import javax.management.JMException;
 import javax.management.openmbean.CompositeData;
 import javax.management.openmbean.TabularData;
 
+import com.alibaba.druid.stat.JdbcStatManager;
+
 import net.simpleframework.ado.query.IDataQuery;
 import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.BeanUtils;
@@ -28,8 +30,6 @@ import net.simpleframework.mvc.component.ui.pager.EPagerBarLayout;
 import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
 import net.simpleframework.mvc.template.struct.NavigationButtons;
-
-import com.alibaba.druid.stat.JdbcStatManager;
 
 /**
  * Licensed under the Apache License, Version 2.0
@@ -48,11 +48,11 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp, "SqlMonitorPage_tbl",
 				TablePagerBean.class).setDetailField("sqlDetail").setHeadHeight(54)
-				.setShowCheckbox(false).setShowLineNo(true).setPagerBarLayout(EPagerBarLayout.bottom)
-				.setContainerId("idSqlMonitorPage_tbl").setHandlerClass(SqlMonitorTable.class);
+						.setShowCheckbox(false).setShowLineNo(true)
+						.setPagerBarLayout(EPagerBarLayout.bottom).setContainerId("idSqlMonitorPage_tbl")
+						.setHandlerClass(SqlMonitorTable.class);
 
-		tablePager
-				.addColumn(new TablePagerColumn("ExecuteCount", "执行次数", 70))
+		tablePager.addColumn(new TablePagerColumn("ExecuteCount", "执行次数", 70))
 				.addColumn(new TablePagerColumn("FetchRowCount", "读取行数", 70))
 				.addColumn(new TablePagerColumn("EffectedRowCount", "影响行数", 70))
 				.addColumn(new TablePagerColumn("RunningCount", "正在执\n行次数", 70))
@@ -64,9 +64,8 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 				.addColumn(new TablePagerColumn("ErrorCount", "错误次数", 70))
 				.addColumn(new TablePagerColumn("BatchSizeMax", "最大\nBatch", 70))
 				.addColumn(new TablePagerColumn("BatchSizeTotal", "所有\nBatch", 70))
-				.addColumn(
-						new TablePagerColumn("ResultSetHoldTime", "ResultSet\n持有时间", 100)
-								.setFormat("#ms"))
+				.addColumn(new TablePagerColumn("ResultSetHoldTime", "ResultSet\n持有时间", 100)
+						.setFormat("#ms"))
 				.addColumn(
 						new TablePagerColumn("ExecuteAndResultSetHoldTime", "ResultSet\n执行及持有时间", 110)
 								.setFormat("#ms"))
@@ -124,11 +123,13 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 		}
 
 		@Override
-		protected Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
+		protected Map<String, Object> getRowData(final ComponentParameter cp,
+				final Object dataObject) {
 			@SuppressWarnings("unchecked")
 			final KVMap kv = new KVMap().addAll((Map<String, Object>) dataObject);
 
-			final double l = ((Long) BeanUtils.getProperty(dataObject, "TotalTime")).doubleValue() / 1000.0;
+			final double l = ((Long) BeanUtils.getProperty(dataObject, "TotalTime")).doubleValue()
+					/ 1000.0;
 			kv.put("TotalTime", NumberUtils.format(l) + "s");
 
 			final StringBuilder sb = new StringBuilder();

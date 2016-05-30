@@ -11,6 +11,8 @@ import java.util.Map;
 import javax.management.JMException;
 import javax.management.openmbean.CompositeData;
 
+import com.alibaba.druid.stat.JdbcStatManager;
+
 import net.simpleframework.ado.query.IDataQuery;
 import net.simpleframework.ado.query.ListDataQuery;
 import net.simpleframework.common.Convert;
@@ -30,8 +32,6 @@ import net.simpleframework.mvc.component.ui.pager.TablePagerBean;
 import net.simpleframework.mvc.component.ui.pager.TablePagerColumn;
 import net.simpleframework.mvc.template.struct.NavigationButtons;
 
-import com.alibaba.druid.stat.JdbcStatManager;
-
 /**
  * Licensed under the Apache License, Version 2.0
  * 
@@ -47,18 +47,17 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 
 		final TablePagerBean tablePager = (TablePagerBean) addComponentBean(pp,
 				"DataSourceMonitorPage_tbl", TablePagerBean.class).setGroupColumn("g")
-				.setShowVerticalLine(true).setShowCheckbox(false).setScrollHead(false)
-				.setShowLineNo(true).setPageItems(100).setPagerBarLayout(EPagerBarLayout.none)
-				.setContainerId("idDataSourceMonitorPage_tbl")
-				.setHandlerClass(DataSourceMonitorTable.class);
+						.setShowVerticalLine(true).setShowCheckbox(false).setScrollHead(false)
+						.setShowLineNo(true).setPageItems(100).setPagerBarLayout(EPagerBarLayout.none)
+						.setContainerId("idDataSourceMonitorPage_tbl")
+						.setHandlerClass(DataSourceMonitorTable.class);
 
 		tablePager
-				.addColumn(
-						new TablePagerColumn("key").setColumnText($m("DataSourceMonitorPage.0"))
-								.setNowrap(false).setWidth(300))
-				.addColumn(
-						new TablePagerColumn("val").setColumnText($m("DataSourceMonitorPage.1"))
-								.setNowrap(false)).addColumn(new TablePagerColumn("g").setVisible(false));
+				.addColumn(new TablePagerColumn("key").setColumnText($m("DataSourceMonitorPage.0"))
+						.setNowrap(false).setWidth(300))
+				.addColumn(new TablePagerColumn("val").setColumnText($m("DataSourceMonitorPage.1"))
+						.setNowrap(false))
+				.addColumn(new TablePagerColumn("g").setVisible(false));
 	}
 
 	@Override
@@ -71,8 +70,8 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 		return sb.toString();
 	}
 
-	public static class DataSourceMonitorTable extends AbstractTablePagerHandler implements
-			IGroupTablePagerHandler {
+	public static class DataSourceMonitorTable extends AbstractTablePagerHandler
+			implements IGroupTablePagerHandler {
 
 		@Override
 		public IDataQuery<?> createDataObjectQuery(final ComponentParameter cp) {
@@ -101,7 +100,8 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 		}
 
 		@Override
-		protected Map<String, Object> getRowData(final ComponentParameter cp, final Object dataObject) {
+		protected Map<String, Object> getRowData(final ComponentParameter cp,
+				final Object dataObject) {
 			@SuppressWarnings("unchecked")
 			final KVMap kv = new KVMap().addAll((Map<String, Object>) dataObject);
 			final String k = (String) kv.get("key");

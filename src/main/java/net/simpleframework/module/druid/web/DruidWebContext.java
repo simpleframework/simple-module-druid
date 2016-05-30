@@ -1,6 +1,7 @@
 package net.simpleframework.module.druid.web;
 
 import static net.simpleframework.common.I18n.$m;
+
 import net.simpleframework.ctx.AbstractModuleContext;
 import net.simpleframework.ctx.Module;
 import net.simpleframework.ctx.ModuleFunctions;
@@ -17,13 +18,14 @@ public class DruidWebContext extends AbstractModuleContext implements IDruidCont
 
 	@Override
 	protected Module createModule() {
-		return new Module().setName(MODULE_NAME).setText("Druid").setOrder(36);
+		return super.createModule().setName(MODULE_NAME).setText("Druid").setOrder(36);
 	}
 
 	@Override
 	protected ModuleFunctions getFunctions() {
-		return ModuleFunctions.of((WebModuleFunction) new WebModuleFunction(this,
-				DataSourceMonitorPage.class).setName(MODULE_NAME + "-DataSourceMonitorPage").setText(
-				$m("DruidWebContext.0")));
+		return ModuleFunctions
+				.of((WebModuleFunction) new WebModuleFunction(this, DataSourceMonitorPage.class)
+						.setName(MODULE_NAME + "-DataSourceMonitorPage")
+						.setText($m("DruidWebContext.0")));
 	}
 }
