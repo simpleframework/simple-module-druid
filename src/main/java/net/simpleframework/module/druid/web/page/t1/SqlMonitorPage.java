@@ -104,11 +104,11 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 			// FetchRowCountHistogram, ,
 			// Histogram, ID
 			// LastSlowParameters,
-			final ArrayList<Map<?, ?>> data = new ArrayList<Map<?, ?>>();
+			final ArrayList<Map<?, ?>> data = new ArrayList<>();
 			final Iterator<?> it = sqls.values().iterator();
 			while (it.hasNext()) {
 				final CompositeData val = (CompositeData) it.next();
-				final Map<String, Object> row = new HashMap<String, Object>();
+				final Map<String, Object> row = new HashMap<>();
 
 				for (final String k : new String[] { "SQL", "ExecuteCount", "FetchRowCount",
 						"EffectedRowCount", "RunningCount", "TotalTime", "ErrorCount", "ConcurrentMax",
@@ -119,7 +119,7 @@ public class SqlMonitorPage extends AbstractMonitorPage {
 				}
 				data.add(row);
 			}
-			return new ListDataQuery<Map<?, ?>>(data);
+			return new ListDataQuery<>(data);
 		}
 
 		@Override

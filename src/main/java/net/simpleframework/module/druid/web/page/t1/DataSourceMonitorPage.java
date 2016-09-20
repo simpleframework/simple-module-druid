@@ -83,20 +83,20 @@ public class DataSourceMonitorPage extends AbstractMonitorPage {
 				throw ComponentHandlerException.of(e);
 			}
 
-			final ArrayList<Map<?, ?>> data = new ArrayList<Map<?, ?>>();
+			final ArrayList<Map<?, ?>> data = new ArrayList<>();
 
 			for (final String g : new String[] { "DataSource.Base", "DataSource.Raw",
 					"DataSource.Connection", "DataSource.Statement", "DataSource.ResultSet" }) {
 				for (String k : StringUtils.split(properties.getProperty(g))) {
 					k = k.trim();
-					final Map<String, Object> row = new HashMap<String, Object>();
+					final Map<String, Object> row = new HashMap<>();
 					row.put("g", g);
 					row.put("key", k);
 					row.put("val", val.get(k));
 					data.add(row);
 				}
 			}
-			return new ListDataQuery<Map<?, ?>>(data);
+			return new ListDataQuery<>(data);
 		}
 
 		@Override

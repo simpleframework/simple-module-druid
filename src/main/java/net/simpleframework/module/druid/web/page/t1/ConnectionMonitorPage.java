@@ -91,10 +91,10 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 				throw ComponentHandlerException.of(e);
 			}
 
-			final ArrayList<Map<?, ?>> data = new ArrayList<Map<?, ?>>();
+			final ArrayList<Map<?, ?>> data = new ArrayList<>();
 			final Iterator<?> it = coll.values().iterator();
 			while (it.hasNext()) {
-				final Map<String, Object> row = new HashMap<String, Object>();
+				final Map<String, Object> row = new HashMap<>();
 				final CompositeData val = (CompositeData) it.next();
 
 				for (final String k : new String[] { "AliveTimespan", "ID", "ConnectStatckTrace",
@@ -104,7 +104,7 @@ public class ConnectionMonitorPage extends AbstractMonitorPage {
 				}
 				data.add(row);
 			}
-			return new ListDataQuery<Map<?, ?>>(data);
+			return new ListDataQuery<>(data);
 		}
 
 		@Override
