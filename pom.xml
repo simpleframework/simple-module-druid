@@ -21,12 +21,5 @@
       <groupId>net.simpleframework</groupId>
       <artifactId>simple-ado</artifactId>
     </dependency>
-
-    <!-- web容器包 -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
   </dependencies>
 </project>
